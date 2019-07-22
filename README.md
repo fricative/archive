@@ -7,7 +7,9 @@ db_config = {
     "user": os.environ['db_user'],
     "password": os.environ['db_password'],
     "db": os.environ['db_name'],
+    'cursorclass': pymysql.cursors.DictCursor
 }
 ```
 
-just like how it is done in preprocess_pipeline/preprocess/src/app.py. 
+Also, one needs to create S3 buckets with globally unique name and replace with your own bucket names in 
+`setup.sh`, `app.py` of the preprocess lambda and the two template.yaml files
